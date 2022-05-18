@@ -1,6 +1,6 @@
 # Dự án game môn Lập trình nâng cao INT2215 1
 - Tên sinh viên: Trần Viết Dũng
-- MSV: 21020752
+- MSV: 21020009
 - Lớp: K66CC
 # Cài đặt và chạy chương trình:
 - Điều kiện: Có compiler C++ và đã tải các thư viện SDL2, SDL2_image, SDL2_ttf, SDL2_mixer. 
