@@ -10,7 +10,7 @@ bool load_music()
 	{
 		Mix_GetError();
 	}
-	bg = Mix_LoadMUS("bg.mp3"); // Load background music
+	bg = Mix_LoadMUS("./data/bg.mp3"); // Load background music
 	if (bg == NULL)
 	{
 		cout << Mix_GetError();
@@ -55,7 +55,7 @@ bool init()
 			else
 			{ 
 				SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-				gFont = TTF_OpenFont("font.ttf", 72);
+				gFont = TTF_OpenFont("./data/font.ttf", 72);
 				if (!gFont)
 				{
 					printf("TTF_OpenFont: %s\n", TTF_GetError());
@@ -73,8 +73,8 @@ bool loadMedia()
 	bool setup = true;
 
 	// Load splash image
-	title = SDL_LoadBMP("last-title.bmp");
-	endgame = SDL_LoadBMP("last-gameover.bmp");
+	title = SDL_LoadBMP("./data/pixel-title.bmp");
+	endgame = SDL_LoadBMP("./data/last-gameover.bmp");
 	if (title == NULL)
 	{
 		printf("Failed to load image %s! SDL Error: %s\n", SDL_GetError());
