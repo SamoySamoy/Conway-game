@@ -1,5 +1,5 @@
 #pragma once
-#include "gol.h"
+#include "conway.h"
 
 using namespace std;
 bool load_music()
@@ -19,7 +19,7 @@ bool load_music()
 	return setup;
 }
 
-bool init()
+bool sdl_init()
 {
 	bool setup = true;
 
@@ -74,7 +74,7 @@ bool loadMedia()
 
 	// Load splash image
 	title = SDL_LoadBMP("./data/pixel-title.bmp");
-	endgame = SDL_LoadBMP("./data/last-gameover.bmp");
+	endgame = SDL_LoadBMP("./data/gameover.bmp");
 	if (title == NULL)
 	{
 		printf("Failed to load image %s! SDL Error: %s\n", SDL_GetError());
@@ -145,16 +145,10 @@ void close()
 	TTF_Quit();
 }
 
-void _drawFillRect(SDL_Color &col, int x, int y, int width, int height)
+void draw_square(SDL_Color &col, int x, int y, int width, int height)
 {
 	SDL_Rect fillRect = {x, y, width, height};
 	SDL_SetRenderDrawColor(renderer, col.r, col.g, col.b, col.a);
 	SDL_RenderFillRect(renderer, &fillRect);
 }
 
-void _drawOutlineRect(SDL_Color &col, int x, int y, int width, int height)
-{
-	SDL_Rect outlineRect = {x, y, width, height};
-	SDL_SetRenderDrawColor(renderer, col.r, col.g, col.b, col.a);
-	SDL_RenderDrawRect(renderer, &outlineRect);
-}

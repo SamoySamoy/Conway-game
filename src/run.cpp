@@ -1,5 +1,5 @@
 #pragma once
-#include "gol.h"
+#include "conway.h"
 
 
 void run()
@@ -10,7 +10,7 @@ void run()
 	}
 	// apply background music for the game with infinite loop
 	Mix_PlayMusic(bg, -1);
-	if (!init())
+	if (!sdl_init())
 	{
 		printf("Failed to initialize");
 		return;
@@ -74,7 +74,7 @@ void run()
 		}
 		SDL_SetRenderDrawColor(renderer, bg_color.r, bg_color.g, bg_color.b, bg_color.a);
 		SDL_RenderClear(renderer);
-		SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0, 77, 38)); // green background
+		SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 185, 65, 16)); 
 		if (state == 0) // menu state
 		{
 			print_title();
@@ -195,20 +195,9 @@ void run()
 					surfaceMessage = TTF_RenderText_Shaded(gFont, paneltext, panel_outline, bg_color);
 					Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 					SDL_FreeSurface(surfaceMessage);		
-					if (SDL_GetTicks64() >= 300 && state == 1 && time == state_count) {
+					if (SDL_GetTicks64() >= 300 && state == 1) {
 						if (stop) {
-							for (int i = 0; i < BOARD_SIZE_X; i++)
-				            {
-					            for (int j = 0; j < BOARD_SIZE_Y; j++) board[i][j] = 0;
-							}	
-							time++;
-							previous = 0;
-							population_count = 0;
-                            low = 1000;
-                            high = 0;
-                            speed = 300;
-                            gene = false;
-							SDL_Delay(1000);
+							SDL_Delay(1234);
 							state = 2;
 						}	
 					}
@@ -222,7 +211,7 @@ void run()
 				for (int j = 0; j < BOARD_SIZE_Y; j++)
 				{
 					if (board[i][j] == 1)
-						_drawFillRect(filled, i * 10, j * 10, 10, 10);
+						draw_square(filled, i * 10, j * 10, 10, 10);
 				}
 			}
             

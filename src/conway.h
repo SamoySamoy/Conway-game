@@ -5,7 +5,6 @@
 #include <algorithm>
 #include <sstream>
 #include <iostream>
-#include <vector>
 
 SDL_Window* window = NULL;
 SDL_Renderer* renderer;
@@ -16,9 +15,9 @@ SDL_Surface* title = NULL;
 SDL_Surface* endgame = NULL;
 SDL_Surface* screen = NULL;
 
-SDL_Color bg_color = {0x2C, 0x34, 0x48, 0xFF};		
-SDL_Color filled = {0x9D, 0xA3, 0xB3, 0xFF};
-SDL_Color panel_outline = {0x10, 0x19, 0x2E, 0xFF};
+SDL_Color bg_color = {0x2c, 0x34, 0x48, 0xFF};		
+SDL_Color filled = {0x9d, 0xa3, 0xb3, 0xFF};
+SDL_Color panel_outline = {0x38, 0xa8, 0xa3, 0xFF};
 SDL_Event e;
 SDL_Surface *surfaceMessage = TTF_RenderText_Solid(gFont, "", {0x10, 0x19, 0x2E, 0xFF});
 SDL_Texture *Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
@@ -44,12 +43,11 @@ bool gene = false;
 bool paused = false;
 bool rText = false;
 
-bool init();
+bool sdl_init();
 bool loadMedia();
 void print_title();
 bool load_music();
 void mouse_event();
 void close();
-void _drawFillRect(SDL_Color&, int, int, int, int);
-void _drawOutlineRect(SDL_Color&, int, int, int, int);
+void draw_square(SDL_Color&, int, int, int, int);
 void print_gameover();
