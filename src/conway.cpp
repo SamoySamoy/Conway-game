@@ -25,22 +25,23 @@ bool sdl_init()
 
 	if (TTF_Init() < 0)
 	{
-		printf("TTF_Init error: %s\n", TTF_GetError());
+		cout << "TTF_Init error";
+		TTF_GetError();
 		setup = false;
 	}
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
-		printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
+		cout << "SDL could not initialize! SDL Error";
+		SDL_GetError();
 		setup = false;
 	}
 	else
 	{
 		if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1"))
-			printf("Warning: Linear texture filtering not enabled!");
+			cout << "Warning: Linear texture filtering not enabled!";
 		window = SDL_CreateWindow("Conway game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 		if (window == NULL)
 		{
-			printf("Window could not be created! SDL Error: %s\n", SDL_GetError());
 			setup = false;
 		}
 		else
@@ -49,7 +50,6 @@ bool sdl_init()
 			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 			if (renderer == NULL)
 			{
-				printf("Renderer could not be created! SDL Error: %s\n", SDL_GetError());
 				setup = false;
 			}
 			else
@@ -58,7 +58,6 @@ bool sdl_init()
 				gFont = TTF_OpenFont("./data/font.ttf", 72);
 				if (!gFont)
 				{
-					printf("TTF_OpenFont: %s\n", TTF_GetError());
 					setup = false;
 				}
 			}
@@ -77,7 +76,7 @@ bool loadMedia()
 	endgame = SDL_LoadBMP("./data/gameover.bmp");
 	if (title == NULL)
 	{
-		printf("Failed to load image %s! SDL Error: %s\n", SDL_GetError());
+		cout << "Failed to load image";
 		setup = false;
 	}
 
@@ -87,7 +86,7 @@ bool loadMedia()
 void print_title()
 {
 	if (!loadMedia())
-		printf("Failed to load media!\n");
+		cout << "Failed to load media";
 	else
 	{
 		SDL_Rect src;
@@ -110,7 +109,7 @@ void print_title()
 void print_gameover()
 {
 	if (!loadMedia())
-		printf("Failed to load media!\n");
+		cout << "Failed to load media";
 	else
 	{
 		SDL_Rect src;

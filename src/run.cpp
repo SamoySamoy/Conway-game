@@ -5,20 +5,18 @@
 void run()
 {   
     if (!load_music()) {
-		printf("Failed to load music");
+		cout << "Failed to load music";
 		return;
 	}
 	// apply background music for the game with infinite loop
 	Mix_PlayMusic(bg, -1);
 	if (!sdl_init())
 	{
-		printf("Failed to initialize");
+		cout << "Failed to initialize";
 		return;
 	}
 	while (quit == false)
-	{	
-		int state_count = 0;	
-		int first = 0;		 									
+	{	 									
 		const Uint8 *keystate = SDL_GetKeyboardState(NULL); // init keystate events
 		if (keystate[SDL_SCANCODE_ESCAPE]) quit = true; // press ESC to exit the game 
 		while (SDL_PollEvent(&e))
@@ -66,7 +64,6 @@ void run()
 				if (e.key.keysym.sym == SDLK_s && state == 1)  // press S to start generating
 				{
 					gene = true;
-					state_count++;
 				}
 				break;
 			}
