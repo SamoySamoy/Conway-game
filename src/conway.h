@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <sstream>
 #include <iostream>
+using namespace std;
 
 SDL_Window* window = NULL;
 SDL_Renderer* renderer;
@@ -15,9 +16,9 @@ SDL_Surface* title = NULL;
 SDL_Surface* endgame = NULL;
 SDL_Surface* screen = NULL;
 
-SDL_Color bg_color = {0x2c, 0x34, 0x48, 0xFF};		
+SDL_Color bg_color = {0x61, 0x3d, 0x4a, 0xFF};		
 SDL_Color filled = {0x9d, 0xa3, 0xb3, 0xFF};
-SDL_Color panel_outline = {0x38, 0xa8, 0xa3, 0xFF};
+SDL_Color panel_outline = {0x49, 0x7a, 0xbc, 0xFF};
 SDL_Event e;
 SDL_Surface *surfaceMessage = TTF_RenderText_Solid(gFont, "", {0x10, 0x19, 0x2E, 0xFF});
 SDL_Texture *Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);

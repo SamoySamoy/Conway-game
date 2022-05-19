@@ -123,9 +123,9 @@ void run()
 			{ 
 				previous = SDL_GetTicks64();
 				if (keystate[SDL_SCANCODE_UP]) 
-					speed -= 50;
+					speed -= 40;
 				if (keystate[SDL_SCANCODE_DOWN])
-					speed += 50;
+					speed += 40;
 				if (keystate[SDL_SCANCODE_P] && state == 1)
 				{
 					if (!paused) paused = true;
