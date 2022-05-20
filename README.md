@@ -25,7 +25,7 @@
 # Các kiến thức, kỹ năng thu được từ dự án
 - Cách set up môi trường, tích hợp thư viện
 - Refactor, phân chia và sắp xếp file, làm việc với git, github
-- Cải thiện trình độ C++
+- Cải thiện kiến thức C++
 - Biết thêm kiến thức liên quan đến Conway's game
 # Tham khảo và hướng phát triển:
 - Tự code, tự tìm hiểu logic Conway's game trên internet
