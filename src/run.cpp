@@ -4,7 +4,8 @@
 
 void run()
 {   
-    if (!load_music()) {
+    if (!load_music()) 
+	{
 		cout << "Failed to load music";
 		return;
 	}
@@ -71,7 +72,7 @@ void run()
 		}
 		SDL_SetRenderDrawColor(renderer, bg_color.r, bg_color.g, bg_color.b, bg_color.a);
 		SDL_RenderClear(renderer);
-		SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 185, 65, 16)); 
+		SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 185, 65, 16)); // menu background color
 		if (state == 0) // menu state
 		{
 			print_title();
@@ -79,13 +80,13 @@ void run()
 			{
 				state = 1; 
 				paused = false;
-				int previous = 0;
+				previous = 0;
 			}
 			SDL_Delay(100);
 		}
 		else if (state == 2) {
 			print_gameover();
-			if (keystate[SDL_SCANCODE_R]) {
+			if (keystate[SDL_SCANCODE_R]) { // refresh game data
 				for (int i = 0; i < BOARD_SIZE_X; i++)
 				{
 					for (int j = 0; j < BOARD_SIZE_Y; j++)
@@ -94,6 +95,7 @@ void run()
 					}
 				}
 				population_count = 0;
+				previous = 0;
 				high = 0;
 				low = 1000;
 				gene = false;
@@ -101,8 +103,9 @@ void run()
 				speed = 300;
 			}
 		}
-		else if (state == 1) // game state
+		else if (state == 1) // main state
 		{   
+			
 			if (keystate[SDL_SCANCODE_R]) // restart the game
 		    {   
 				for (int i = 0; i < BOARD_SIZE_X; i++)
@@ -113,6 +116,7 @@ void run()
 					}
 				}
 				population_count = 0;
+				previous = 0;
 				high = 0;
 				low = 1000;
 				gene = false;
@@ -132,10 +136,9 @@ void run()
 					state = 0;
 					SDL_Delay(50);
 				}
-				int time = 0;
 				if (gene == true && paused == false) // apply the game logic
 				{   
-					bool stop = true;
+					bool stop = true; // check for endgame
 					int newboard[BOARD_SIZE_X][BOARD_SIZE_Y];
 					// create a newboard for checking game gene
 					std::copy(&board[0][0], &board[0][0] + BOARD_SIZE_X * BOARD_SIZE_Y, &newboard[0][0]);
@@ -143,7 +146,6 @@ void run()
 					{
 						for (int j = 0; j < BOARD_SIZE_Y; j++)
 						{   
-							
 							int alive = 0;
 							int dead = 0;
 							for (int k = 0; k < 8; k++)
@@ -159,24 +161,19 @@ void run()
 										alive++;
 								}
 							}
-							if (board[i][j] == 1 && (alive == 2 || alive == 3))
-								continue;
+							if (board[i][j] == 1 && (alive == 2 || alive == 3)) continue;
+							else if (board[i][j] == 1)
+							{
+								newboard[i][j] = 0;
+								population_count--;
+								stop = false;
+							}	
 							else if (board[i][j] == 0 && alive == 3)
 							{
 								newboard[i][j] = 1;
 								population_count++;
 								stop = false;
-							}
-							else
-							{
-								if (board[i][j] == 1)
-								{
-									newboard[i][j] = 0;
-									population_count--;
-									stop = false;
-								}
-							}
-							
+							}	
 						}
 					}
 					// update the lowest and highest population
@@ -194,7 +191,7 @@ void run()
 					SDL_FreeSurface(surfaceMessage);		
 					if (SDL_GetTicks64() >= 300 && state == 1) {
 						if (stop) {
-							SDL_Delay(1234);
+							SDL_Delay(1234); // Delay before moving to endgame state
 							state = 2;
 						}	
 					}
@@ -208,7 +205,7 @@ void run()
 				for (int j = 0; j < BOARD_SIZE_Y; j++)
 				{
 					if (board[i][j] == 1)
-						draw_square(filled, i * 10, j * 10, 10, 10);
+						draw_square(filled, i * 10, j * 10, 10, 10); 
 				}
 			}
             

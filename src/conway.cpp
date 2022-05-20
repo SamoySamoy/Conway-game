@@ -13,7 +13,7 @@ bool load_music()
 	bg = Mix_LoadMUS("./data/bg.mp3"); // Load background music
 	if (bg == NULL)
 	{
-		cout << Mix_GetError();
+		Mix_GetError();
 		setup = false;
 	}
 	return setup;
@@ -22,7 +22,6 @@ bool load_music()
 bool sdl_init()
 {
 	bool setup = true;
-
 	if (TTF_Init() < 0)
 	{
 		cout << "TTF_Init error";
@@ -101,7 +100,7 @@ void print_title()
 		dest.w = title->w;
 		dest.h = title->h;
 
-		SDL_BlitSurface(title, &src, screen, &dest); // display the title 
+		SDL_BlitSurface(title, &src, screen, &dest);  
 	}
 	SDL_UpdateWindowSurface(window);
 }

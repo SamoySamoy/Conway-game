@@ -9,13 +9,12 @@ using namespace std;
 
 SDL_Window* window = NULL;
 SDL_Renderer* renderer;
-TTF_Font* gFont = NULL;
 Mix_Music *bg = NULL;
 SDL_Texture *screen_texture;
 SDL_Surface* title = NULL;
 SDL_Surface* endgame = NULL;
 SDL_Surface* screen = NULL;
-
+TTF_Font* gFont = NULL;
 SDL_Color bg_color = {0x61, 0x3d, 0x4a, 0xFF};		
 SDL_Color filled = {0x9d, 0xa3, 0xb3, 0xFF};
 SDL_Color panel_outline = {0x49, 0x7a, 0xbc, 0xFF};
@@ -33,7 +32,7 @@ int board[BOARD_SIZE_X][BOARD_SIZE_Y] = {0};
 // n : neighbours (each square has 8 neighbour squares)
 int nx[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int ny[8] = {-1, -1, 0, 1, 1, 1, 0, -1};
-int state = 0;
+int state = 0; 
 int previous = 0;
 int population_count = 0;
 int low = 1000;
@@ -47,8 +46,8 @@ bool rText = false;
 bool sdl_init();
 bool loadMedia();
 void print_title();
+void print_gameover();
 bool load_music();
 void mouse_event();
-void close();
 void draw_square(SDL_Color&, int, int, int, int);
-void print_gameover();
+void close();
