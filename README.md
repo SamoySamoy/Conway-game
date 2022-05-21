@@ -32,5 +32,6 @@
 - Học SDL2 trên https://lazyfoo.net/tutorials/SDL/ 
 - Tạo hình ảnh miễn phí từ http://pixelartmaker.com/, https://www.hexcolortool.com/
 - Lấy âm thanh miễn phí trên https://www.chosic.com/free-music/games/
+- Tự đánh giá: 8.5 - 9
 - Hướng phát triển: Cải thiện giao diện hình ảnh đẹp hơn, thêm các mẫu mầm có hiệu ứng sinh độc đáo được phát hiện bởi cộng đồng mạng, các mẫu mầm có thể mô phỏng ý nghĩa khoa học của trò chơi.
 - Tối ưu game: Endgame khi các tất cả tế bào trở nên stable, tức là sự sống chết của các tế bào không thay đổi nữa, khi đó population cố định. Tuy nhiên có 1 trường hợp đặc biệt không phải stable pattern nhưng population có thể đạt được trạng thái cố định, theo nghĩa nào đó thì đây vẫn được coi là endgame. Hiện tại em chưa và vẫn đang cố gắng giải quyết trường hợp này, hy vọng thầy cô và các bạn có thể đóng góp vào source code giúp em hoàn thiện trò chơi.
