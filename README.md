@@ -21,7 +21,7 @@
 - Các chức năng cơ bản, nhận sự kiện từ bàn phím như begin (SPACE), stimulate (S), restart (R), pause (P), điều chỉnh tốc độ up/down, exit (ESC)
 - Click chuột trái/phải để tạo/xóa mầm ban đầu của hệ thống
 - Hiển thị số tế bào hiện tại (population), trạng thái đông đúc nhất (crowdest) và trạng thái ít nhất (lowest) 
-- Video demo: 
+- Video demo: https://www.youtube.com/watch?v=FhnWXSWHUFg
 # Các kiến thức, kỹ năng thu được từ dự án
 - Cách set up môi trường, tích hợp thư viện
 - Refactor, phân chia và sắp xếp file, làm việc với git, github
