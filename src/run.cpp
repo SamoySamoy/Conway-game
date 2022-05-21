@@ -84,7 +84,7 @@ void run()
 			}
 			SDL_Delay(100);
 		}
-		else if (state == 2) {
+		else if (state == 2) { //endgame state
 			print_gameover();
 			if (keystate[SDL_SCANCODE_R]) { // refresh game data
 				for (int i = 0; i < BOARD_SIZE_X; i++)

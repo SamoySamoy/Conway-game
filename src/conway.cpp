@@ -72,7 +72,7 @@ bool loadMedia()
 
 	// Load splash image
 	title = SDL_LoadBMP("./data/pixel-title.bmp");
-	endgame = SDL_LoadBMP("./data/gameover.bmp");
+	endgame = SDL_LoadBMP("./data/end-state.bmp");
 	if (title == NULL)
 	{
 		cout << "Failed to load image";
