@@ -15,7 +15,7 @@
 3. Ô đang sống mà có 2 hoặc 3 hàng xóm đang sống sẽ tiếp tục sống (tồn tại cân bằng)
 4. Ô chết mà có đúng 3 hàng xóm đang sống sẽ chuyển thành ô sống (sự sinh sản)
 - Mẫu ban đầu là mầm của hệ thống. Thế hệ đầu tiên được tạo ra bằng cách áp dụng luật trên cho tất cả mọi tế bào trong hạt giống và mỗi một thế hệ mới được tạo ra là một hàm thuần túy của thế hệ trước đó.
-- Chi tiết: https://conwaylife.com/forums/     http://dotat.at/prog/life/life.html
+- Chi tiết:  http://pi.math.cornell.edu/~lipa/mec/lesson6.html  https://conwaylife.com/forums/ 
 # Mô tả chung của dự án:
 - Có giao diện dễ nhìn và âm thanh dễ chịu
 - Các chức năng cơ bản, nhận sự kiện từ bàn phím như begin (SPACE), stimulate (S), restart (R), pause (P), điều chỉnh tốc độ up/down, exit (ESC)

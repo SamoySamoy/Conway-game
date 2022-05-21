@@ -10,7 +10,7 @@ bool load_music()
 	{
 		Mix_GetError();
 	}
-	bg = Mix_LoadMUS("./data/bg.mp3"); // Load background music
+	bg = Mix_LoadMUS("./data/sakura.mp3"); // Load background music
 	if (bg == NULL)
 	{
 		Mix_GetError();
